@@ -310,7 +310,7 @@ module Sidekiq
       def cmdline_busy?(pid)
         return unless alive?(pid)
         path = "/proc/#{pid}/cmdline"
-        return unless File.exists?(path)
+        return unless File.exist?(path)
         cmdline = File.read(path)
         return if cmdline.empty?
         !cmdline.scan(/busy\]/).empty?
